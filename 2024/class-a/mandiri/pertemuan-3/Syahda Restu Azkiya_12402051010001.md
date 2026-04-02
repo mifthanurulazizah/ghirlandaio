@@ -31,3 +31,8 @@ Kesimpulannya, banyak mitos tentang teknologi muncul karena kurangnya pemahaman 
 Banyak mitos tentang teknologi yang sering dipercaya muncul dari kebiasaan, pengalaman pribadi, dan informasi yang tidak dicek kebenarannya. Dari pembahasan tersebut terlihat bahwa teknologi tidak selalu membawa kemudahan, tidak sepenuhnya mencerminkan kenyataan, dan tidak selalu bekerja sama untuk setiap orang. Selain itu, teknologi juga tidak benar-benar “gratis” dan tidak selalu lebih baik hanya karena lebih baru.
 
 Melalui pemahaman dari artikel dan pengalaman pribadi, dapat diketahui bahwa teknologi memiliki pengaruh besar dalam membentuk cara berpikir, perilaku, dan interaksi manusia. Oleh karena itu, penting untuk memiliki sikap kritis dalam menyikapi teknologi agar tidak mudah percaya pada anggapan yang salah, serta dapat menggunakan teknologi secara lebih bijak dan sesuai kebutuhan.
+
+### **Referensi
+Siemers, P. (2025, November 21). *Five lies we tell ourselves about technology*. Medium. 
+https://medium.com/brain-labs/five-lies-we-tell-ourselves-about-technology-6909a1469874
+Zohaibert. (2025, October 26). *19 technology myths you still believe and the truth behind them*. Medium. https://medium.com/%40zohaibert436/19-technology-myths-you-still-believe-and-the-truth-behind-them-fd6bdf96f387
