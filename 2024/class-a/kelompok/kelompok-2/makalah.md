@@ -1,5 +1,11 @@
 # TEKNOLOGI SEBAGAI MITOS DAN HIPERREALITAS
 
+
+<img width="1089" height="1298" alt="image" src="https://github.com/user-attachments/assets/98e53a97-09d1-44eb-956e-493018f19746" />
+
+
+
+
 Dosen pengampu : Al Muhdil Karim, S.IP., M.Hum
 
 Disusun oleh :
