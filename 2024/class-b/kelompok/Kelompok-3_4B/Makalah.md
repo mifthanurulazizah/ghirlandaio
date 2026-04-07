@@ -5,3 +5,16 @@
 4. Jelaskan sejarah dan pola hubungan antara kode sumber terbuka dan kode sumber tertutup rentang tahun 1970an-sekarang.
 5. Jelaskan sikap anda terhadap kode sumber terbuka atau kode sumber tertutup.
 6. Jelaskan hubungan antara kode sumber terbuka dan kode sumber tertutup dengan ideologi.
+# KATA PENGANTAR
+Puji syukur kami panjatkan atas kehadirat Allah Swt yang telah melimpahkan rahmat dan hidayah-Nya sehingga kami dapat 
+menyelesaikan makalah yang berjudul “.....”. 
+Tidak lupa kami mengucapkan terimakasih kepada Bapak Al Muhdil Karim, S. IP., M. Hum. 
+selaku dosen pengampu mata kuliah Perpustakaan dan Arsip Digital  yang telah memberikan tugas ini, 
+sehingga dapat menambah pengetahuan dan wawasan.
+Ucapan terima kasih juga kami sampaikan kepada semua pihak yang telah membantu dalam proses penyusunan makalah ini. 
+Kami menyadari bahwa makalah ini masih jauh dari kata sempurna dan terdapat 
+kekurangan di dalamnya, baik dari penyusunan maupun tata bahasa penyampaian yang 
+digunakan. Untuk itu, kami mengharapkan kritik dan saran dari para pembaca agar dapat 
+menjadi acuan dalam membuat makalah yang lebih baik di masa mendatang. Akhir kata 
+semoga makalah ini dapat memberikan manfaat bagi para pembaca.
+Tangerang Selatan, 7 April 2026
