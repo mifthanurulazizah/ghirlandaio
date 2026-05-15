@@ -98,9 +98,12 @@ otomatis __membuat direktori dengan mkdir__ dan __mount point__ pada partisi yan
 >gunakan intel-ucode untuk INTEL <br>
 >Pacstrap -K /mnt base base-devel linux linux-firmware git neovim iwd <br>
 
-base dan linux-firmware itu penting untuk menjalankan linu,x base adalah dasar atau inti dari repo linux sebagai dasar dasar dari sistem linux dan linux-firmware = firmware untuk linux 
+base dan linux-firmware itu penting untuk menjalankan linux base adalah dasar atau inti dari repo linux sebagai dasar dasar dari sistem linux dan linux-firmware = firmware untuk linux 
 neovim adalah teks editor untuk linux dan iwd adalah sistem network untuk linux 
 
+### CP network configuration 
+
+mkdir -p /var/lib/iwd 
 
 
 
