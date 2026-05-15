@@ -139,12 +139,27 @@ WHOAMI? __[useradd,groupadd,sudoers.d/]__
 > __useradd__ gunanya untuk menambahkan usser <br> 
 > __groupadd__ untuk menambahkan etential group <br>
 > __sudoers.d/__ direktori atau tempat untuk mengizinkan __sudo__ atau user untuk melakukan sesuatu terhadap command dan __terminal__ dengan __% group__ atau __ALL=(ALL:ALL) ALL__, izin sudoers terhadap user tertentu, berbentuk akses <br>
-> __passwd__ sebagai bentuk prefentif atau security untuk user terhadap terminal dan perintah sudo 
+> __passwd__ sebagai bentuk prefentif atau security untuk user terhadap terminal dan perintah sudo <br> 
 >EXAMPLE ; <br> 
 >  __useradd -m -G aditional-gruop -s /bin/bash__ jeremy <br> 
 > __passwd__ jeremy <br> 
 > __EDITOR=nvim visudo /etc/sudoers.d/administrator-gruop__  // kamu masuk ke direktori sudoers dan mengizinkan user untuk melakukan sudo terhadap terminal untuk sistem perintah <br> 
 > setelah masuk maka masukan __%administrator-gruop ALL=(ALL:ALL) ALL__ untuk semua yang ada dalam kategori group administrator atau __jeremy ALL=(ALL:ALL) ALL__ untuk per satu orang <br>
+
+masih di dalam dekstop arch-chroot /mnt 
+kita akan menentukan dekstop environment, memasang beberapa keperluan untuk dekstop dan uefimanager untuk boot dan boot untuk bootloadernya 
+
+## Desktop environment
+user dapat memilih beberapa destop environment untuk tampilan destop nya seperti gnome, plasma kde, hyprland, niri, manggo, xcf4 
+
+tapi kita akan memilih plasma saja karena mudah dan mendekati penggunaan windows 
+
+## keperluan lainnya 
+kita akan menginstall pipewire untuk audio, thunar atau dolphin untuk file manager, kitty untuk terminal dan wofi atau rofi untuk menu, ttf-jetbrains-mono-nerds untuk jenis font , firefox-developer-edition untuk search engine 
+
+tanpa pipewire audio tidak akan berjalan, tanpa dolphin atau thunar kita tidak bisa akses ke file manager, tanpa wofi atau rofi tidak ada exec ke menu atau search bar 
+
+install semuanya menggunakan __pacman -S plasma kitty dolphin pipewire pipewire-jack dolphin wofi tt-jetbrains-mono-nerds firefox-developer-edition__
 
 
 
