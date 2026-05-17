@@ -1,8 +1,8 @@
-# INSTALASI DESKTOP ARCH LINUX
+**<h1 align="center">INSTALASI DESKTOP ARCH LINUX </h1>**
 
-*Makalah ini disusun untuk memenuhi tugas mata kuliah Perpustakaan dan Arsip Digital*
+<p align="center"><small>Makalah ini disusun untuk memenuhi tugas mata kuliah Perpustakaan dan Arsip Digital
 
-<img width="690" height="599" alt="690px-logouinsyarifhidayatullahjakarta" src="https://github.com/user-attachments/assets/656b29bd-4701-4b2d-8d57-e0c13afece40" />
+<p align="center"><img width="690" height="599" alt="690px-logouinsyarifhidayatullahjakarta" src="https://github.com/user-attachments/assets/656b29bd-4701-4b2d-8d57-e0c13afece40" />
 
 **Dosen Pengampu:**
 
@@ -16,15 +16,17 @@ Al Muhdil Karim, S.IP, M.Hum.
 
 3. Dhea Azzahra Putri (12402051050113)
 
-Kelas A
+<p align="center"><small>Kelas A
 
-**PROGRAM STUDI ILMU PERPUSTAKAAN**
+<p align="center"><b>PROGRAM STUDI ILMU PERPUSTAKAAN</b></p>
 
-**FAKULTAS ADAB DAN HUMANIORA**
+<p align="center"><b>FAKULTAS ADAB DAN HUMANIORA</b></p>
 
-**UNIVERSITAS ISLAM NEGERI SYARIF HIDAYATULLAH JAKARTA**
+<p align="center"><b>UNIVERSITAS ISLAM NEGERI SYARIF HIDAYATULLAH JAKARTA</b></p>
 
-**TAHUN 2026**
+<p align="center"><b>TAHUN 2026</b></p>
+
+---
 
 # KATA PENGANTAR
 
