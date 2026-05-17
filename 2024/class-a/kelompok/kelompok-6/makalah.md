@@ -91,11 +91,11 @@ setelah sudah semua, cukup all saja dan default 1, dan yang terakhir y
 ## 2.3 Pipwire
 PipeWire merupakan kerangka kerja multimedia tingkat rendah yang digunakan untuk mengelola audio dan video pada sistem Linux. Layanan ini juga dapat dikonfigurasi sebagai server audio maupun server penangkap video. Selain itu, PipeWire mendukung penggunaan container seperti Flatpak dan menggunakan sistem keamanan berbasis izin seperti Polkit untuk mengatur akses perekaman layar maupun audio sehingga lebih aman dan fleksibel digunakan pada desktop Linux modern. 
 
-1. Instalasi PipeWire
+1. Instalasi PipeWire menggunakan
 
    ``` sudo pacman -S pipewire ```. 
 
-2. Install PipeWire beserta komponen pendukungnya menggunakan
+2. Jika ingin install PipeWire beserta komponen pendukungnya gunakan
    
    ``` sudo pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack ```
 
@@ -122,6 +122,14 @@ Dolphin merupakan file manager bawaan KDE yang digunakan untuk mengelola file da
    
 ## 2.5 Kitty
 Kitty merupakan emulator terminal berbasis OpenGL yang dapat diprogram dan mendukung fitur TrueColor, ligatur, ekstensi protokol input keyboard, serta rendering gambar di dalam terminal. Kitty juga memiliki kemampuan tiling seperti GNU Screen atau tmux sehingga pengguna dapat membuka dan mengatur beberapa tab maupun jendela terminal dengan mudah melalui kombinasi tombol keyboard. Selain itu, Kitty menyediakan fitur tambahan yang disebut kittens, yaitu subprogram untuk berbagai kebutuhan seperti menampilkan gambar di terminal (icat), membandingkan file (diff), serta mengakses clipboard sistem (clipboard).
+
+1. Install Kitty menggunakan
+
+   ``` sudo pacman -S kitty ```
+
+2. Setelah instalasi selesai, jalankan Kitty menggunakan
+
+  ``` kitty ```
 
 # BAB III PENUTUP
 
