@@ -61,4 +61,26 @@ pastikan network interface telah dilist dan dienable
 ip a
 ping archlinux.com
 ```
-insta
+instal networkmanager
+```
+pacman -S networkmanager
+```
+start networkmanager
+```
+systemctl enable NetworkManager.service
+```
+
+initframs
+```
+mkinitcpio -P
+```
+root password
+```
+passwd
+```
+boot loader
+install efibootmgr
+```
+pacman -S grub efibootmgr
+```
+
