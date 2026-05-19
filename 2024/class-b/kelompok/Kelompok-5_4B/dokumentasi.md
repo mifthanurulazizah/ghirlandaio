@@ -166,15 +166,16 @@ Setelah fstab dibuat, langkah selanjutnya adalah masuk ke sistem Arch Linux yang
 `ln -sf /usr/share/zoneinfo/Area/Location /etc/localtime`
 ### Sinkronkan hardware clock: 
 `Hwclock --systohc`
+
 ### Localization 
 Generate local: locale-gen
-`Isi /etc/locale.conf: LANG=en_US.UTF-8`
+`nvim /etc/locale.conf: LANG=en_US.UTF-8`
 Penjelasan 
-Mengatur bahasa dan format sesuai dengan wilayah 
+digunakan untuk memproses data bahasa yang dipilih 
 ### Hostname 
 Hostname merupakan nama komputer di jaringan 
 Klik i masukan nama komputer, klik esc klik :wq 
-npim /etc/hostname
+`nvim /etc/hostname`
 ### Generate Initramfs 
 `mkinitcpio -P`
 Penjelasan 
