@@ -174,7 +174,7 @@ digunakan untuk memproses data bahasa yang dipilih
 Hostname merupakan nama komputer `nvim /etc/hostname`
 Klik i masukan nama komputer, klik esc klik :wq 
 ### User
-untuk menambahkan user command : `useradd -m -G wheel -s /bin/bash [nama user]` usahan menggunakan huruf kecil dan hanya satu kata, lalu masukan password command `passwd ` [nama user] lalu unntuk mengecek berhasil atau tidak untuk user command `su [nama user]`
+untuk menambahkan user command : `useradd -m -G wheel -s /bin/bash [nama user]` usahan menggunakan huruf kecil dan hanya satu kata, lalu masukan password command `passwd ` [nama user] lalu unntuk mengecek berhasil atau tidak untuk user command `su [nama user]` kalau sudah exit lalu buka pengaturan hak akses command nya `EDITOR=nvim visudo` lalu ketik `/` (untuk mencari kata) `% wheel ALL=(ALL:ALL) ALL` lalu klik `i` (untuk mengubah isi file) hapus tanda # yang ada di sebelah katayang dicari, lalu klik esc lalu ketik :wq untuk keluar  
 ### Generate Initramfs 
 `mkinitcpio -P`
 Penjelasan 
