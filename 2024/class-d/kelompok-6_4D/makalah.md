@@ -114,6 +114,4 @@ sudo pacman -S kitty
 - https://wiki.archlinux.org/title/Dolphin 
 - https://wiki.archlinux.org/title/Kitty 
 
-<p align="center"><b>TAHUN 2026</b></p>
-
 ---
