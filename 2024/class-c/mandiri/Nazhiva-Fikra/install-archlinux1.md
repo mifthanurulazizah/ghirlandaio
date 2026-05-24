@@ -6,3 +6,6 @@
 
 3. Klik archlinux-2026.05.01-x86_64.iso
 <img width="1600" height="1200" alt="citrahost" src="https://github.com/user-attachments/assets/f1d02ce0-54ea-42fa-bb7a-4dc61d3ea50a" />
+
+4. Siapkan flashdisk dan unduh Rufus di situs https://rufus.ie/id. Lalu klik rufus-4.14.exe (disesuaikan laptop masing-masing)
+<img width="1599" height="899" alt="rufus" src="https://github.com/user-attachments/assets/12351e75-a978-4cac-9462-2c8cea610225" />
