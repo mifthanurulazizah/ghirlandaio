@@ -1,6 +1,6 @@
-# Instalasi linux with cis layout disk
 
-## menghubungkan ke internet
+
+## Menghubungkan ke internet
 
 ```bash
 iwctl
