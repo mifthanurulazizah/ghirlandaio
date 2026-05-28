@@ -1,4 +1,4 @@
-## Dokumentasi Penginstalan Arch Linux
+# Dokumentasi Penginstalan Arch Linux
 <img width="1280" height="960" alt="a84b978a-6341-4d85-8016-e25ccacd2177" src="https://github.com/user-attachments/assets/9cb59976-2f4f-46a5-8535-818767aa65f6" />
 <img width="1280" height="960" alt="e651f5b8-cc63-4728-8df9-c3c73650850b" src="https://github.com/user-attachments/assets/0edad84b-aed6-492f-ab33-a4b0c15970ff" />
 <img width="1280" height="960" alt="e6abc6e5-b132-481e-a9a2-70668dc62d13" src="https://github.com/user-attachments/assets/cdd0d802-8499-46a6-aa69-8ea854fc6cb4" />
