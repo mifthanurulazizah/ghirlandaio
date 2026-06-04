@@ -1,6 +1,7 @@
 # Instalasi archlinux menggunakan CIS dan penggunaan aplikasinya
 ---
 
+---
 <img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/ae4e3714-278d-43c7-ba37-c4fabd245deb" />
 ---
 
@@ -47,9 +48,6 @@
 ---
 
 <img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/4287d84d-42c4-4404-b6aa-01d9aaa3206b" />
----
-
-<img width="1280" height="782" alt="image" src="https://github.com/user-attachments/assets/77254842-3d04-4357-96ed-53412b4caf3f" />
 ---
 
 <img width="1280" height="1231" alt="image" src="https://github.com/user-attachments/assets/02e6e3f9-8fdc-4fcf-983b-6778e6556a96" />
