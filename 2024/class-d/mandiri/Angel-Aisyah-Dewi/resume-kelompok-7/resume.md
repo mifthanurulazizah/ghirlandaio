@@ -1,4 +1,5 @@
 ##LVM on LUKS vs LUKS on LVM
+
 Dua cara berbeda buat gabungin enkripsi disk (LUKS) sama manajemen volume (LVM). LVM on LUKS: enkrip dulu baru dibagi — cukup satu kunci buat semua. LUKS on LVM: dibagi dulu baru tiap bagian dienkrip sendiri-sendiri — lebih aman tapi lebih ribet.
 
 ##KeePassXC dan Secret Service
