@@ -1,0 +1,143 @@
+# Arch Linux Hardened — Panduan Instalasi 
+
+## Fase Live ISO
+
+Pertama-tama, setelah booting dari USB installer, kamu perlu terhubung ke internet. Jalankan `iwctl`, lalu cari nama device wifimu dengan `device list`. Setelah itu scan jaringan yang tersedia, sambungkan ke wifi pilihanmu, dan verifikasi koneksi dengan `ping 1.1.1.1`  kalau ada balasan, berarti internet sudah aktif.
+
+Setelah online, saatnya menyiapkan disk. Ketik `lsblk` untuk melihat daftar disk yang ada, lalu buka `cfdisk` untuk membuat dua partisi dasar: partisi **boot** 1GB bertipe EFI system, dan partisi **root** sisanya bertipe Linux filesystem. Hati-hati saat di sini kalau salah hapus partisi penting, langsung tekan Quit, jangan Write.
+
+Partisi root yang sudah dibuat lalu dijadikan **Physical Volume** LVM dengan `pvcreate`, kemudian dibungkus dalam sebuah **Volume Group** bernama `proc` via `vgcreate`. Dari sana, kamu iris-iris menjadi beberapa Logical Volume:
+
+| Volume | Ukuran |
+|--------|--------|
+| root   | 20G    |
+| vars   | 2G     |
+| vtmp   | 2G     |
+| vlog   | 5G     |
+| vaud   | 2G     |
+| home   | 10G    |
+
+Pemisahan ini mengikuti standar CIS Benchmark agar setiap partisi sistem terisolasi satu sama lain.
+
+Selanjutnya, enkripsi. Setiap Logical Volume yang ingin dilindungi diformat dengan **LUKS** menggunakan `cryptsetup luksFormat`, di sinilah kamu memasukkan password master enkripsimu. Setelah itu buka partisi tersebut dengan `luksOpen` sehingga muncul sebagai device virtual di `/dev/mapper/`, siap diformat. Format partisi-partisi itu dengan `mkfs.ext4`, kecuali partisi boot yang harus `mkfs.vfat -F32` karena spesifikasi UEFI hanya bisa membaca FAT32.
+
+Semua partisi lalu di**mount** ke dalam `/mnt` dengan flag-flag keamanan CIS:
+
+- `nodev` — mencegah pembuatan device ilegal
+- `nosuid` — mencegah privilege escalation
+- `noexec` — mencegah eksekusi binary langsung dari partisi seperti `/tmp` dan `/home`
+
+Dengan struktur disk siap, jalankan `pacstrap` untuk menginstal semua package utama ke `/mnt`. Daftar pentingnya meliputi:
+
+- `linux-lts` — kernel Long Term Support yang lebih stabil untuk sistem hardened
+- `intel-ucode` / `amd-ucode` untuk menambal celah keamanan hardware seperti Spectre dan Meltdown
+- `booster`, `networkmanager`, `pam_mount`, dan lain-lain
+
+Terakhir di fase ini, generate file `/etc/fstab` otomatis dengan:
+
+```bash
+genfstab -U /mnt > /mnt/etc/fstab
+```
+
+Lalu tambahkan entri **tmpfs** secara manual agar `/tmp` berjalan di RAM:
+
+```bash
+echo "/tmpfs /tmp tmpfs defaults,nosuid,nodev,noexec,size=1G 0 0" >> /mnt/etc/fstab
+```
+
+---
+
+## Transisi: Masuk ke Sistem Baru
+
+```bash
+arch-chroot /mnt
+```
+
+Dengan perintah ini kamu berpindah dari lingkungan Live USB masuk seolah-olah sudah berada di dalam sistem Arch Linux yang baru terinstal di harddisk.
+
+---
+
+## Fase Arch-Chroot
+
+Di dalam chroot, isi file `/etc/hostname` dengan nama komputermu, buat symbolic link timezone ke `Asia/Jakarta`, lalu sinkronkan jam hardware:
+
+```bash
+echo namakomputer > /etc/hostname
+ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+hwclock --systohc
+```
+
+Untuk bahasa sistem, buka `/etc/locale.gen` dan hapus tanda `#` di depan `en_US.UTF-8`, jalankan `locale-gen`, lalu isi `/etc/locale.conf` dengan `LANG=en_US.UTF-8`.
+
+```bash
+locale-gen
+locale > /etc/locale.conf
+```
+
+Buat user baru dengan `useradd`, set passwordnya dan ini **krusial**  password user harus sama persis dengan password LUKS yang kamu buat tadi. Ini bukan kebetulan, ini disengaja agar modul `pam_mount` bisa membongkar enkripsi secara transparan saat kamu login tanpa harus mengetik password dua kali. Tambahkan user ke sudoers agar punya akses administrator penuh.
+
+> [!WARNING]
+> Password user **wajib sama** dengan password LUKS. Jika berbeda, `pam_mount` tidak bisa membuka enkripsi secara otomatis saat login.
+
+Konfigurasi `pam_mount.conf.xml` untuk memberitahu sistem bahwa ketika user tersebut login, ambil passwordnya dan gunakan untuk membuka volume LUKS yang sesuai, lalu mount otomatis ke direktori homenya:
+
+```bash
+nvim /etc/security/pam_mount.conf.xml
+```
+
+Kemudian edit `/etc/pam.d/system-login` dan sisipkan baris `auth required pam_mount.so` agar PAM mengikutsertakan modul ini dalam proses otentikasi login.
+
+Untuk initramfs, gunakan **Booster** — pengganti `mkinitcpio` yang ditulis dalam Go dan jauh lebih cepat saat booting. Konfigurasi `booster.yaml`:
+
+```yaml
+network:
+  dhcp: on
+universal: false
+modules: -*,ext4
+extra_files: fsck,fsck.ext4
+strip: true
+enable_lvm: true
+```
+
+Lalu build image-nya:
+
+```bash
+booster build --kernel-version /boot/booster-linux-lts-new.img
+```
+
+Terakhir, instal bootloader **systemd-boot**:
+
+```bash
+bootctl --path=/boot install
+```
+
+Buat file konfigurasi entry di `/boot/loader/entries/booster.conf`:
+
+```
+title   arch with booster
+linux   /vmlinuz-linux-lts
+initrd  /intel-ucode.img
+initrd  /booster-linux-lts-new.img
+options root=/dev/proc/root rw
+```
+
+Set entry ini sebagai default di `/boot/loader/loader.conf`:
+
+```
+default booster.conf
+```
+
+---
+
+## Finalisasi
+
+```bash
+exit
+umount -R /mnt
+reboot
+```
+
+Ketik `exit` untuk keluar dari chroot, lalu `umount -R /mnt` untuk melepas semua partisi dengan aman agar data tersimpan dengan benar ke disk. Terakhir, `reboot` — dan jangan lupa **cabut flashdisk** saat logo BIOS muncul.
+
+Nah, terus kata bapaknya LVM cocok buat perpustakaan karena bisa buat manajemen kapasitas storage untuk pengelolaan buku baru masuk. Kalau LUKS cocok buat arsip karena kan ga semua arsip bersifat publik, jadi dengan LUKS ini bisa kita atur agar data arsip tersimpan dalam enkripsi biar kalaupun server dicuri, data tidak akan terbaca tanpa kunci yang benar. Pake Iptables kita pastikan setiap jenis akses bisa masuk lewat port mana dan mana juga port yang ditutup.
+

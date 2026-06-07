@@ -8,7 +8,6 @@ Presentator mampu melakukan dan menjelaskan installasi desktop arch linux
 | package         | value           |
 |-----------------|-----------------|
 | boot            | booster         |
-| secureboot      | true            |
 | disk encryption | luks on lvm     |
 | dekstop         | xfce            |
 | file manager    | super file      |
