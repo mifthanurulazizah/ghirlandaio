@@ -37,11 +37,12 @@ system = 50G [linux filesystem]
 #   SETUP LUKS
 
 ```
-cryptsetup luksFormat --sector-size 4096 /dev/partisi
+cryptsetup luksFormat --sector-size 4096 /dev/partisi_system
 ```
 ```
-cryptsetup luksOpen /dev/partisi [creamy]
+cryptsetup luksOpen /dev/partisi_system [creamy]
 ```
+
 ```
 pvcreate /dev/mapper/[creamy]
 ```
@@ -78,6 +79,17 @@ mkfs.ext4 /dev/pudding/vars
 ```
 ```
 mount --mkdir -o rw,nodev,nosuid,relatime /dev/pudding/vars /mnt/var
+```
+### tmp
+
+```
+lvcreate -L 2G pudding -n tmp
+```
+```
+mkfs.ext4 /dev/pudding/tmp
+```
+```
+mount --mkdir -o rw,nodev,nosuid,relatime /dev/pudding/tmp /mnt/tmp
 ```
 ### vtemp
 ```
@@ -139,7 +151,7 @@ lspci
 > untuk melihat jenis hardware
 
 ```
-pacstrap /mnt intel-ucode base pacman sudo linux-lts linux-lts-headers lvm2 mkinitcpio linux-firmware-intel docker neovim git iwd asciinema firefox linux-firmware-realtek firewalld
+pacstrap /mnt intel-ucode base pacman sudo linux-lts linux-lts-headers lvm2 mkinitcpio linux-firmware-intel docker neovim git iwd asciinema linux-firmware-realtek firewalld
 ```
 # regist partisi
 ```
@@ -220,9 +232,13 @@ cd ..
 ```
 mv vmlinuz-* intel-* kernel
 ```
+>[!NOTE]
+> '*' (artinya klik tab)
 ```
 rm -fr initramfs-*
 ```
+>[!NOTE]
+> '*' (artinya klik tab)
 ```
 mv /etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf
 ```
@@ -242,6 +258,15 @@ bootctl --path=/boot install
 ```
 mkinitcpio -P
 ```
+```
+systemctl enable iwd
+```
+```
+systemctl enable systemd-networkd.socket
+```
+```
+systemctl enable systemd-resolved
+```
 # finish installation
 ```
 exit
@@ -252,5 +277,95 @@ umount -R /mnt
 ```
 reboot
 ```
+---
+
+# after installation
+
+## network
+```
+nvim /etc/iwd/main.conf
+```
+> tambahkan
+```
+[General]
+EnableNetworkConfiguration=true
+```
+
+## disable module
+
+```
+nvim /etc/modprobe.d/hardening.conf
+```
+
+> isi
+
+```
+install    cramfs           /bin/false
 
 
+install    freexfs          /bin/false
+
+
+install    hfs              /bin/false
+
+
+install    hfsplus          /bin/false
+
+
+install    jffs2            /bin/false
+
+
+install    udf              /bin/false
+
+
+install    fire-wire-core   /bin/false
+
+
+install    usb_storage      /bin/false
+
+```
+selanjutnya ketik : 
+```
+mkinitcpio -P
+```
+cek list module :
+```
+lsmod
+```
+```
+lsmod | grep namamodule
+```
+
+## setup firewalld
+
+```
+systemctl enable --now firewalld
+```
+```
+sudo firewall-cmd --zone=public --add-service=http --permanent 
+```
+```
+sudo firewall-cmd --zone=public --add-port=2377/tcp --permanent
+```
+```
+sudo firewall-cmd --zone=public --add-port=7946/tcp --permanent
+```
+```
+sudo firewall-cmd --zone=public --add-port=4789/tcp --permanent
+```
+```
+sudo firewall-cmd --zone=public --add-port=8000/tcp --permanent
+```
+```
+sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
+```
+```
+sudo firewall-cmd --zone=public --add-port=6379/tcp --permanent
+```
+```
+sudo firewall-cmd --reload
+```
+Selanjutnya, untuk melihat list-list port dan sistem yang sudah di enable ketik:
+```
+sudo firewall-cmd --list-ports
+```

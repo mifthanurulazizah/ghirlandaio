@@ -217,7 +217,7 @@ locale > /etc/locale.conf
 ```
 nvim /etc/locale.conf
 ```
-> Ubah LANG=C menjadi LANG=en-US dan LC_ALL= menjadi LC_ALL=en-US.UTF-8
+> Ubah LANG=C menjadi LANG=en_US dan LC_ALL= menjadi LC_ALL=en_US.UTF-8
 
 ---
 ## Home User Directory
@@ -255,7 +255,7 @@ touch /etc/cmdline.d/{01-boot.conf,06-misc.conf}
 nvim /etc/cmdline.d/01-boot.conf
 ```
 ```
-echo "rd.luks.name=$(blkid -s UUID -o value /dev/(partisi root))=(nama user) root=/dev/(nama grup)/root" >> /etc/cmdline.d/01-boot.conf
+echo "rd.luks.name=$(blkid -s UUID -o value /dev/(partisi root))=(nama user) root=/dev/(nama grup)/root" > /etc/cmdline.d/01-boot.conf
 ```
 ```
 nvim /etc/cmdline.d/06-misc.conf
@@ -279,6 +279,27 @@ Berpindah ke direktori Boot
 cd /boot
 ```
 Pengecekan file Booting
+```
+ls
+```
+```
+mkdir efi kernel
+```
+```
+cd efi/
+```
+```
+mkdir linux
+```
+```
+cd ..
+```
+```
+ls
+```
+```
+mv vmlinuz-linux-hardened amd-ucode.img kernel/
+```
 ```
 ls
 ```
