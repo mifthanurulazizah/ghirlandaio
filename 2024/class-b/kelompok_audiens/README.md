@@ -16,7 +16,7 @@ KELOMPOK 4
 
 KELOMPOK 5
 1. Munazi Julita Pratiwi
-2. Fauziyyah Nurzarha
+2. Fauziyyah Nurzahra
 
 KELOMPOK 6
 1. Artika
@@ -24,7 +24,7 @@ KELOMPOK 6
 
 KELOMPOK 7
 1. Nazwa Prina Al Atsilah
-2. Marsya Dwi Della
+2. Marsha Dwi Della
 
 KELOMPOK 8
 1. Siti Nasuhah
@@ -51,7 +51,7 @@ KELOMPOK 13
 2. Nuha Ramadhani
 
 KELOMPOK 14
-1. Muhammad Fauzab Azhiimi
+1. Muhammad Fauzan Azhiimi
 2. Fathi Muhammad Rafi
 
 KELOMPOK 15
